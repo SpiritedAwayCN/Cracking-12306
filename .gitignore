@@ -1,0 +1,10 @@
+archive
+
+*.zip
+*.npz
+*.npy
+*.h5
+*.pyc
+*.vscode
+*.ipynb_checkpoints
+*__pycache__
