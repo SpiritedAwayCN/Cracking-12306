@@ -9,7 +9,7 @@ import constants as c
 from models.ResNetV2 import ResNetv2
 from utils.data import get_train_dataset, get_test_dataset
 from utils.utils import l2_loss_of_model, correct_number
-from test import test
+# from test import test
 
 @tf.function
 def train_step(model, images, labels, optimizer):
@@ -71,8 +71,8 @@ class CustomSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):
 
 if __name__=='__main__':
     # gpu config
-    # physical_devices = tf.config.experimental.list_physical_devices('GPU')
-    # tf.config.experimental.set_memory_growth(device=physical_devices[0], enable=True)
+    physical_devices = tf.config.experimental.list_physical_devices('GPU')
+    tf.config.experimental.set_memory_growth(device=physical_devices[0], enable=True)
     # tf.keras.backend.set_floatx('float16')
 
     model = ResNetv2()
@@ -82,7 +82,7 @@ if __name__=='__main__':
 
     warmup(model, train_iter)
     model.save_weights('ResNetV2-warmup.h5')
-    test(model)
+    # test(model)
     
     learning_rate_schedules = keras.experimental.CosineDecay(initial_learning_rate=0.05,decay_steps=c.total_epoches * c.iterations_per_epoch, alpha=0.0001)
     # learning_rate_schedules = CustomSchedule()
@@ -95,6 +95,6 @@ if __name__=='__main__':
     for epoch in range(0, c.total_epoches):
         print("Epoch {:d}/{:d}".format(epoch + 1, c.total_epoches))
         train(model, train_iter, optimizer)
-        if epoch % 10 == 0 or epoch >=90:
+        if epoch % 5 == 4 or epoch >=90:
             model.save_weights('ResNetV2-{:0>2}.h5'.format(epoch + 1))
-        test(model)
+        # test(model)
