@@ -75,6 +75,16 @@ def load_image_multicrop(path, labels):
     label = keras.utils.to_categorical(labels, c.num_class)
     return image, label
 
+def load_image_multicrop_for_predict(image):
+    image = image.astype(np.float32)
+
+    images = utils.crop_ten(image)
+    images = np.array(images, dtype=np.float32)
+
+    for i in range(3):
+        images[..., i] = (images[..., i] - c.mean[i]) / c.std[i]
+    return images
+
 def get_train_dataset(list_path="./metadata/train_label.txt"):
     images, labels = load_list(list_path, "./archive")
     dataset = tf.data.Dataset.from_tensor_slices((images, labels))
