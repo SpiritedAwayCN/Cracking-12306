@@ -6,5 +6,7 @@ archive
 *.h5
 *.pyc
 *.vscode
+*.tar
+*.tar.gz
 *.ipynb_checkpoints
 *__pycache__
