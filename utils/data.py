@@ -85,7 +85,7 @@ def load_image_multicrop_for_predict(image):
         images[..., i] = (images[..., i] - c.mean[i]) / c.std[i]
     return images
 
-def get_train_dataset(list_path="./metadata/train_label.txt"):
+def get_train_dataset(list_path="./metadata/train_label_all.txt"):
     images, labels = load_list(list_path, "./archive")
     dataset = tf.data.Dataset.from_tensor_slices((images, labels))
     dataset = dataset.shuffle(len(images)).repeat()
