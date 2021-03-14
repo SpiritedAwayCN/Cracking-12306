@@ -3,7 +3,7 @@ import os
 import cv2
 from tqdm import tqdm
 
-DATASET_DIR = 'archive'
+DATASET_DIR = '../archive'
 
 EX = np.zeros((3,))
 EXY = np.zeros((3, 3))
