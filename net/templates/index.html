@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>图像识别模块标注</title>
+</head>
+<body>
+    <h2>当前会话模型top-1准确率：{{ session['correct'] }} / {{ session['count'] }} </h2>
+    <h3>注：只有第一名置信度小于0.55的图片才会出现于此标注。</h3>
+    <iframe src="{{ url_for('captcha_frame') }}" style="height: 200px; width: 100%"></iframe>
+    <form action="{{ url_for('submit_captcha')}}" method="post" enctype="application/x-www-form-urlencoded">
+        <p>
+            请选择类别：
+            <select name="cate_id" autofocus>
+                {% for key, value in top_label_dict.items() %}
+                <option value="{{ value }}">{{ key }}</option>
+                {% endfor %}
+                <option value="marked">--已标--</option>
+                <option value="skipped">--跳过--</option>
+                <option value="12">安全帽</option>
+                <option value="22">本子</option>
+                <option value="75">鞭炮</option>
+                <option value="03">冰箱</option>
+                <option value="55">菠萝</option>
+                <option value="51">苍蝇拍</option>
+                <option value="53">茶蛊</option>
+                <option value="52">茶几</option>
+                <option value="04">创可贴</option>
+                <option value="05">刺绣</option>
+                <option value="15">打字机</option>
+                <option value="23">档案袋</option>
+                <option value="40">电饭煲</option>
+                <option value="39">电线</option>
+                <option value="38">电子秤</option>
+                <option value="64">调色板</option>
+                <option value="62">订书机</option>
+                <option value="49">耳塞</option>
+                <option value="76">风铃</option>
+                <option value="77">高压锅</option>
+                <option value="02">公交卡</option>
+                <option value="18">挂钟</option>
+                <option value="71">锅铲</option>
+                <option value="29">海报</option>
+                <option value="31">海鸥</option>
+                <option value="30">海苔</option>
+                <option value="50">航母</option>
+                <option value="78">黑板</option>
+                <option value="44">红豆</option>
+                <option value="45">红酒</option>
+                <option value="43">红枣</option>
+                <option value="16">护腕</option>
+                <option value="63">话梅</option>
+                <option value="06">剪纸</option>
+                <option value="68">金字塔</option>
+                <option value="73">锦旗</option>
+                <option value="08">卷尺</option>
+                <option value="13">开瓶器</option>
+                <option value="10">口哨</option>
+                <option value="60">蜡烛</option>
+                <option value="67">辣椒酱</option>
+                <option value="42">篮球</option>
+                <option value="48">老虎</option>
+                <option value="70">铃铛</option>
+                <option value="79">龙舟</option>
+                <option value="32">漏斗</option>
+                <option value="66">路灯</option>
+                <option value="46">绿豆</option>
+                <option value="72">锣</option>
+                <option value="58">蚂蚁</option>
+                <option value="26">毛线</option>
+                <option value="59">蜜蜂</option>
+                <option value="24">棉棒</option>
+                <option value="19">排风机</option>
+                <option value="35">牌坊</option>
+                <option value="41">盘子</option>
+                <option value="65">跑步机</option>
+                <option value="11">啤酒</option>
+                <option value="34">热水袋</option>
+                <option value="21">日历</option>
+                <option value="27">沙包</option>
+                <option value="28">沙拉</option>
+                <option value="37">珊瑚</option>
+                <option value="36">狮子</option>
+                <option value="14">手掌印</option>
+                <option value="57">薯条</option>
+                <option value="09">双面胶</option>
+                <option value="17">拖把</option>
+                <option value="47">网球拍</option>
+                <option value="20">文具盒</option>
+                <option value="61">蜥蜴</option>
+                <option value="54">药片</option>
+                <option value="01">仪表盘</option>
+                <option value="07">印章</option>
+                <option value="25">樱桃</option>
+                <option value="74">雨靴</option>
+                <option value="56">蒸笼</option>
+                <option value="00">中国结</option>
+                <option value="69">钟表</option>
+                <option value="33">烛台</option>
+            </select>
+            <button type="submit">提交</button>
+        </p>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endwith %}
+    <p>
+        <p>请选择正确的类别标注，机器预测的前5名在选项最前面，之后是按<b>字典序</b>排列的所有类别</p>
+        <p>对于无法确定的图片，请选择<b>跳过</b>；对于你见过的图片，选择<b>已标</b>，最后还会再进行一次人工去重</p>
+    </p>
+</body>
+</html>

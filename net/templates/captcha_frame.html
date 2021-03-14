@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>图像识别模块标注</title>
+</head>
+<body>
+    <table>
+        <tr style="text-align: center;">
+            <td>{{ session['serial'] }}</td>
+            <td>机器结果</td>
+        </tr>
+        <tr>
+            <td><img src="data:image/png;base64,{{ img_stream }}"></td>
+            <td>
+                {% for key, value in top_label_dict.items() %}
+                <pre><p>&emsp;{{ key }} &#9; {{ value }}</p></pre>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    <!-- <p>{{ session['serial'] }}</p> -->
+    <style>
+        img {
+            height: 96px;
+        }
+    </style>
+</body>
+</html>

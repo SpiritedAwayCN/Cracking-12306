@@ -8,7 +8,7 @@ from models.ResNetV2 import ResNetv2
 
 _model = None
 label_dict = [0] * c.num_class
-def load_model_and_label(model_path='h5/20210313-01/ResNetV2-97.h5', label_path='metadata/label_to_content.txt'):
+def load_model_and_label(model_path='h5/20210313-02/ResNetV2-97.h5', label_path='metadata/label_to_content.txt'):
     global _model
 
     if not _model is None:

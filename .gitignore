@@ -10,3 +10,8 @@ archive
 *.tar.gz
 *.ipynb_checkpoints
 *__pycache__
+
+net/need_tagged
+net/predictions
+net/retagged
+net/skipped
