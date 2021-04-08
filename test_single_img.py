@@ -19,7 +19,7 @@ def load_model_and_label(model_path='h5/20210314-02/ResNetV2-97.h5', label_path=
     _model.load_weights(model_path)
     with open(label_path, encoding='utf-8') as f:
         for line in f.readlines():
-            id, name = line.strip().split(' ')
+            id, name, _ = line.strip().split(' ')
             label_dict[int(id)] = name
 
 def pred_single(img):

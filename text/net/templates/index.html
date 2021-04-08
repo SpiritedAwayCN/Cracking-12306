@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>文字识别模块标注</title>
+</head>
+<body>
+    <h2>当前会话已经标注：{{ session['count'] }} </h2>
+    <iframe src="{{ url_for('captcha_frame') }}" style="height: 100px; width: 100%"></iframe>
+    <form action="{{ url_for('submit_captcha')}}" method="post" enctype="application/x-www-form-urlencoded">
+        <p>
+            <input name="captcha" autofocus>
+            <button type="submit">提交</button>
+        </p>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endwith %}
+    <p>
+        <p>输入汉字拼音的首字母即可，如：钟表(zb)、茶盅(cz)、锣(l)，但有如下例外：</p>
+        <ul>
+            <li>海报(haib)，黑板(heib)</li>
+            <li>漏斗(loud)，绿豆(lvd)，铃铛(lingd)，路灯(lud)</li>
+            <li>航母(hangm)，话梅(huam)</li>
+            <li>龙舟(longz)，蜡烛(laz)</li>
+        </ul>
+        <p>如果输入不在类别表里面会不通过；如果上一个输错了在群里说一声；</p>
+        <p>对于无法确定的图片，以及任何切割有误的图片，输入一个减号"-"以跳过，之后会人工查看。</p>
+    </p>
+</body>
+</html>

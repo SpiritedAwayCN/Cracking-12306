@@ -31,7 +31,7 @@ top_k = 5
 label_dict = [0] * 80
 with open('../metadata/label_to_content.txt', encoding='utf-8') as f:
     for line in f.readlines():
-        id, name = line.strip().split(' ')
+        id, name, _ = line.strip().split(' ')
         label_dict[int(id)] = name
 label_dict = np.array(label_dict)
 
