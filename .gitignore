@@ -1,4 +1,5 @@
 archive
+archive_text
 
 *.zip
 *.npz
