@@ -15,7 +15,8 @@ def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
     model_path='h5/20210314-02/ResNetV2-97.h5',
     label_path='metadata/label_to_content.txt'):
     global _model, _text_model
-    print(model_path)
+    print('image recognition model:', model_path)
+    print('text recognition model:', text_model_path)
 
     if not _model is None:
         return
@@ -38,8 +39,11 @@ def pred_single(img):
     return prediction
 
 def pred_text(img):
-    text_imgs = tuple(map(cropping, extract_text_img(img)))
-    text_imgs = np.vstack(text_imgs)
+    text_imgs = extract_text_img(img)
+    if text_imgs is None:
+        return None
+    text_imgs = tuple(map(cropping, text_imgs))
+    text_imgs = np.vstack(text_imgs).astype(np.float32)
     text_imgs = (text_imgs - 74.19824782421746) / 59.435693003198594
     text_prediction = _text_model(text_imgs, training=False)
     return text_prediction
@@ -49,7 +53,8 @@ def extract_text_img(img):
     text_img = img[:29, 117:250]
     text_img = cv2.cvtColor(text_img, cv2.COLOR_BGR2GRAY)
     
-    text_img2 = cv2.GaussianBlur(text_img, (3,3), 1)
+    #text_img2 = cv2.GaussianBlur(text_img, (3,3), 1)
+    text_img2 = text_img
     sobelY = np.array([
         [-1, 0, 1],
         [-2, 0, 2],
@@ -59,7 +64,7 @@ def extract_text_img(img):
     _, thres = cv2.threshold(edges, 0, 1, cv2.THRESH_OTSU)
     
     col_sum = np.sum(thres, axis=0)
-    divides = np.argwhere(col_sum > 27).squeeze()
+    divides = np.argwhere(col_sum > 27).flatten()
     imgs = []
     
     if len(divides) < 2:
@@ -84,7 +89,9 @@ def extract_text_img(img):
                 cnt = 1
             last_num = num
         ans.append(int(round(sums / cnt)))
-        
+        if(len(ans) < 2):
+            return None # error!
+
         imgs.append(text_img[3:22, :ans[0]].copy())
         imgs.append(text_img[3:22, ans[0]:ans[1]].copy())
         # assert len(ans) == 2
