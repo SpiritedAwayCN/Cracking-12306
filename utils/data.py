@@ -46,11 +46,7 @@ def data_augmentation(image):
     return image
 
 def load_image(path, labels, augments=False):
-    try:
-        image = cv2.imread(path.numpy().decode()).astype(np.float32)
-    except Exception:
-        print(path.numpy().decode())
-        exit()
+    image = cv2.imread(path.numpy().decode()).astype(np.float32)
 
     if augments:
         image = data_augmentation(image)
