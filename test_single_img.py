@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.lib.npyio import load
 import tensorflow as tf
 import cv2
 
