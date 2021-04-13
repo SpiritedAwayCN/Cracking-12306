@@ -1,7 +1,7 @@
 input_shape = 56, 56, 3
 num_class = 80
 
-total_epoches = 100
+total_epoches = 50
 batch_size = 64
 
 train_num = 12772
