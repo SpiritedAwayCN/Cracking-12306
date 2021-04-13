@@ -10,7 +10,7 @@ val_num = 1254
 iterations_per_epoch = train_num // batch_size + 1
 test_iterations = val_num // batch_size + 1
 
-weight_decay = 5e-4
+weight_decay = 1e-3
 label_smoothing = 0.1
 
 
