@@ -6,7 +6,7 @@ from tqdm import tqdm, trange
 from tensorflow import keras
 
 import constants as c
-from models.ResNetV2 import ResNetv2
+from models.ResNet_SE import ResNetSE
 from utils.data import get_train_dataset, get_test_dataset
 from utils.utils import l2_loss_of_model, correct_number
 from test import test
@@ -75,7 +75,7 @@ if __name__=='__main__':
     # tf.config.experimental.set_memory_growth(device=physical_devices[0], enable=True)
     # tf.keras.backend.set_floatx('float16')
 
-    model = ResNetv2()
+    model = ResNetSE()
     model.build(input_shape=(None,) + c.input_shape)
 
     train_iter = get_train_dataset().__iter__()
@@ -95,6 +95,6 @@ if __name__=='__main__':
     for epoch in range(0, c.total_epoches):
         print("Epoch {:d}/{:d}".format(epoch + 1, c.total_epoches))
         train(model, train_iter, optimizer)
-        if epoch % 10 == 0 or epoch >=90:
+        if epoch % 10 == 0 or epoch >=40:
             model.save_weights('ResNetV2-{:0>2}.h5'.format(epoch + 1))
         test(model)

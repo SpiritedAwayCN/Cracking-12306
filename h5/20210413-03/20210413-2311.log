@@ -1,0 +1,148 @@
+2021-04-13 14:56:38.936271: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-04-13 14:56:40.543609: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-13 14:56:40.544443: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-13 14:56:40.575569: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.576183: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla T4 computeCapability: 7.5
+coreClock: 1.59GHz coreCount: 40 deviceMemorySize: 14.75GiB deviceMemoryBandwidth: 298.08GiB/s
+2021-04-13 14:56:40.576221: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-04-13 14:56:40.578860: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-04-13 14:56:40.578953: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-04-13 14:56:40.580800: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-13 14:56:40.581145: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-13 14:56:40.583813: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-13 14:56:40.584445: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-04-13 14:56:40.584641: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-04-13 14:56:40.584735: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.585325: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.585881: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-13 14:56:40.589630: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-13 14:56:40.589746: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.590293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla T4 computeCapability: 7.5
+coreClock: 1.59GHz coreCount: 40 deviceMemorySize: 14.75GiB deviceMemoryBandwidth: 298.08GiB/s
+2021-04-13 14:56:40.590321: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-04-13 14:56:40.590353: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-04-13 14:56:40.590376: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-04-13 14:56:40.590400: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-13 14:56:40.590423: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-13 14:56:40.590444: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-13 14:56:40.590465: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-04-13 14:56:40.590488: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-04-13 14:56:40.590562: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.591133: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:40.591643: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-13 14:56:40.591683: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-04-13 14:56:41.105755: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-13 14:56:41.105812: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-13 14:56:41.105832: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-13 14:56:41.106047: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:41.106669: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:41.107252: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-13 14:56:41.107780: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13994 MB memory) -> physical GPU (device: 0, name: Tesla T4, pci bus id: 0000:00:04.0, compute capability: 7.5)
+2021-04-13 14:56:41.858264: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-13 14:56:41.858611: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2199995000 Hz
+  0% 0/202 [00:00<?, ?it/s]2021-04-13 14:56:44.582918: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-04-13 14:56:45.104693: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-04-13 14:56:45.111317: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+100% 202/202 [00:19<00:00, 10.14it/s, loss: 4.9848, accurancy: 0.2031]
+Epoch 1/50
+100% 202/202 [00:17<00:00, 11.78it/s, loss: 4.5090, accurancy: 0.2031]
+Epoch 2/50
+100% 202/202 [00:14<00:00, 13.80it/s, loss: 3.7960, accurancy: 0.3281]
+Epoch 3/50
+100% 202/202 [00:14<00:00, 13.79it/s, loss: 3.5345, accurancy: 0.4219]
+Epoch 4/50
+100% 202/202 [00:14<00:00, 13.71it/s, loss: 3.5420, accurancy: 0.4062]
+Epoch 5/50
+100% 202/202 [00:14<00:00, 13.65it/s, loss: 3.0715, accurancy: 0.5156]
+Epoch 6/50
+100% 202/202 [00:14<00:00, 13.62it/s, loss: 2.8000, accurancy: 0.5938]
+Epoch 7/50
+100% 202/202 [00:14<00:00, 13.58it/s, loss: 2.6381, accurancy: 0.5938]
+Epoch 8/50
+100% 202/202 [00:14<00:00, 13.50it/s, loss: 2.6781, accurancy: 0.5781]
+Epoch 9/50
+100% 202/202 [00:14<00:00, 13.49it/s, loss: 2.4666, accurancy: 0.5938]
+Epoch 10/50
+100% 202/202 [00:14<00:00, 13.47it/s, loss: 2.2910, accurancy: 0.7031]
+Epoch 11/50
+100% 202/202 [00:15<00:00, 13.42it/s, loss: 2.4437, accurancy: 0.6719]
+Epoch 12/50
+100% 202/202 [00:15<00:00, 13.35it/s, loss: 2.0098, accurancy: 0.8281]
+Epoch 13/50
+100% 202/202 [00:15<00:00, 13.25it/s, loss: 2.0660, accurancy: 0.7969]
+Epoch 14/50
+100% 202/202 [00:15<00:00, 13.08it/s, loss: 2.1180, accurancy: 0.7344]
+Epoch 15/50
+100% 202/202 [00:15<00:00, 13.16it/s, loss: 2.0811, accurancy: 0.7812]
+Epoch 16/50
+100% 202/202 [00:15<00:00, 13.21it/s, loss: 2.0076, accurancy: 0.7812]
+Epoch 17/50
+100% 202/202 [00:15<00:00, 13.28it/s, loss: 1.9685, accurancy: 0.8281]
+Epoch 18/50
+100% 202/202 [00:15<00:00, 13.27it/s, loss: 1.7348, accurancy: 0.8906]
+Epoch 19/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.9432, accurancy: 0.7656]
+Epoch 20/50
+100% 202/202 [00:15<00:00, 13.22it/s, loss: 1.8148, accurancy: 0.8281]
+Epoch 21/50
+100% 202/202 [00:15<00:00, 13.20it/s, loss: 1.6961, accurancy: 0.9062]
+Epoch 22/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.6411, accurancy: 0.9219]
+Epoch 23/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.6133, accurancy: 0.9219]
+Epoch 24/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.7398, accurancy: 0.8750]
+Epoch 25/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.5717, accurancy: 0.9531]
+Epoch 26/50
+100% 202/202 [00:15<00:00, 13.25it/s, loss: 1.5677, accurancy: 0.9375]
+Epoch 27/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.6090, accurancy: 0.8750]
+Epoch 28/50
+100% 202/202 [00:15<00:00, 13.22it/s, loss: 1.7380, accurancy: 0.7812]
+Epoch 29/50
+100% 202/202 [00:15<00:00, 13.25it/s, loss: 1.5224, accurancy: 0.9062]
+Epoch 30/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.4535, accurancy: 0.9531]
+Epoch 31/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.4120, accurancy: 0.9375]
+Epoch 32/50
+100% 202/202 [00:15<00:00, 13.20it/s, loss: 1.3903, accurancy: 0.9688]
+Epoch 33/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.3050, accurancy: 1.0000]
+Epoch 34/50
+100% 202/202 [00:15<00:00, 13.22it/s, loss: 1.3334, accurancy: 0.9688]
+Epoch 35/50
+100% 202/202 [00:15<00:00, 13.25it/s, loss: 1.3426, accurancy: 0.9219]
+Epoch 36/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.2638, accurancy: 1.0000]
+Epoch 37/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.2830, accurancy: 0.9688]
+Epoch 38/50
+100% 202/202 [00:15<00:00, 13.22it/s, loss: 1.2648, accurancy: 1.0000]
+Epoch 39/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.2191, accurancy: 1.0000]
+Epoch 40/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.2232, accurancy: 0.9844]
+Epoch 41/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.2164, accurancy: 0.9844]
+Epoch 42/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.1932, accurancy: 1.0000]
+Epoch 43/50
+100% 202/202 [00:15<00:00, 13.21it/s, loss: 1.1842, accurancy: 1.0000]
+Epoch 44/50
+100% 202/202 [00:15<00:00, 13.24it/s, loss: 1.2233, accurancy: 0.9844]
+Epoch 45/50
+100% 202/202 [00:15<00:00, 13.22it/s, loss: 1.2009, accurancy: 0.9688]
+Epoch 46/50
+100% 202/202 [00:15<00:00, 13.21it/s, loss: 1.1744, accurancy: 1.0000]
+Epoch 47/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.1790, accurancy: 1.0000]
+Epoch 48/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.1546, accurancy: 1.0000]
+Epoch 49/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.1716, accurancy: 1.0000]
+Epoch 50/50
+100% 202/202 [00:15<00:00, 13.23it/s, loss: 1.2127, accurancy: 0.9688]

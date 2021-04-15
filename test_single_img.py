@@ -11,7 +11,7 @@ _model = None
 _text_model = None
 label_dict = [0] * c.num_class
 def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
-    model_path='h5/20210314-02/ResNetV2-97.h5',
+    model_path='h5/20210413-03/ResNetV2-50.h5',
     label_path='metadata/label_to_content.txt'):
     global _model, _text_model
     print('image recognition model:', model_path)
