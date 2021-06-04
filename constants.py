@@ -4,8 +4,10 @@ num_class = 80
 total_epoches = 50
 batch_size = 64
 
-train_num = 11650
-val_num = 1254
+#train_num = 11650
+#val_num = 1254
+train_num = 10003
+val_num = 2580
 
 iterations_per_epoch = train_num // batch_size + 1
 test_iterations = val_num // batch_size + 1
