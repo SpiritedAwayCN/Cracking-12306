@@ -14,8 +14,11 @@ def test_step(model, images, labels):
     cross_entropy = tf.reduce_mean(cross_entropy)
     return cross_entropy, prediction
 
-def test(model):
-    data_iterator = get_test_dataset().__iter__()
+def test(model,list_path=None):
+    if list_path:
+        data_iterator = get_test_dataset(list_path).__iter__()
+    else:
+        data_iterator = get_test_dataset().__iter__()
     total_correct_num = 0
 
     print("testing...")
