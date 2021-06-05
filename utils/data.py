@@ -85,7 +85,7 @@ def load_image_multicrop_for_predict(image):
         images[..., i] = (images[..., i] - c.mean[i]) / c.std[i]
     return images
 
-def get_train_dataset(list_path="./metadata/train_label.txt"):
+def get_train_dataset(list_path="./metadata/train_label1.txt"):
     images, labels = load_list(list_path, "./archive")
     dataset = tf.data.Dataset.from_tensor_slices((images, labels))
     dataset = dataset.shuffle(len(images)).repeat()
@@ -93,14 +93,14 @@ def get_train_dataset(list_path="./metadata/train_label.txt"):
     dataset = dataset.batch(c.batch_size)
     return dataset
 
-def get_test_dataset(list_path="./metadata/test_label.txt"):
+def get_test_dataset(list_path="./metadata/test_label1.txt"):
     images, labels = load_list(list_path, "./archive")
     dataset = tf.data.Dataset.from_tensor_slices((images, labels))
     dataset = dataset.map(lambda x, y: tf.py_function(load_image, inp=[x, y, False], Tout=[tf.float32, tf.float32]), num_parallel_calls=tf.data.experimental.AUTOTUNE)
     dataset = dataset.batch(c.batch_size)
     return dataset
 
-def get_predict_dataset(list_path="./metadata/test_label.txt"):
+def get_predict_dataset(list_path="./metadata/test_label1.txt"):
     images, labels = load_list(list_path, "./archive")
     dataset = tf.data.Dataset.from_tensor_slices((images, labels))
     dataset = dataset.map(lambda x, y: tf.py_function(load_image_multicrop, inp=[x, y], Tout=[tf.float32, tf.float32]), num_parallel_calls=tf.data.experimental.AUTOTUNE)

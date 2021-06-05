@@ -4,7 +4,7 @@ import cv2
 
 import constants as c
 from utils.data import load_image_multicrop_for_predict
-from models.ResNetV2 import ResNetv2
+from models.ResNetV2 import *
 from models.ResNetV2_text import ResNetv2_text
 
 _model = None
@@ -19,9 +19,17 @@ def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
 
     if not _model is None:
         return
-    _model = ResNetv2()
-    _model.build((None, ) + c.input_shape)
-    _model.load_weights(model_path)
+    
+    if model_path == 'boosting':
+        _model_list = [ResNetv2S1()]
+        _model_path = ['h5/ResNetS1.S5']
+        for model, path in zip(_model_list, _model_path):
+            model.build((None, ) + c.input_shape)
+            model.load_weights(path)
+    else:
+        _model = ResNetv2()
+        _model.build((None, ) + c.input_shape)
+        _model.load_weights(model_path)
 
     _text_model = ResNetv2_text(c.num_class)
     _text_model.build((None, 57, 57, 1))
@@ -31,9 +39,13 @@ def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
             id, name, _ = line.strip().split(' ')
             label_dict[int(id)] = name
 
-def pred_single(img):
+def pred_single(img, boosting=False):
     imgs = load_image_multicrop_for_predict(img)
-    prediction = _model(imgs, training=False)
+    if boosting:
+        prediction = [model(imgs, training=False) for model in _model]
+        prediction = tf.concat(prediction, axis=1)
+    else:
+        prediction = _model(imgs, training=False)
     prediction = tf.reduce_mean(prediction, axis=0)
     return prediction
 
@@ -59,7 +71,8 @@ def extract_text_img(img):
         [-2, 0, 2],
         [-1, 0, 1]
     ])
-    edges = cv2.filter2D(text_img2, -1, sobelY)
+    edges = cv2.filter2D(text_img2, cv2.CV_32F, sobelY)
+    edges = np.abs(edges).clip(0, 255).astype(np.uint8)
     _, thres = cv2.threshold(edges, 0, 1, cv2.THRESH_OTSU)
     
     col_sum = np.sum(thres, axis=0)

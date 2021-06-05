@@ -39,7 +39,7 @@ request_headers = {
     "X-Requested-With": "XMLHttpRequest"
 }
 
-load_model_and_label()
+load_model_and_label(model_path='boosting')
 
 def get_new_session():
     session = requests.session()
@@ -82,7 +82,7 @@ def predict_captcha(img, md5_str, save=True):
     # print("------------------")
     # label_np = np.array(label_dict)
     for i, image in enumerate(gen_imgs(img)):
-        prediction = pred_single(image)
+        prediction = pred_single(image, boosting=True)
         
         index_list = np.argpartition(prediction, -top_k)[-top_k:]
         index_list = sorted(index_list, key=lambda x: -prediction[x].numpy())
