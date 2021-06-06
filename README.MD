@@ -1,4 +1,4 @@
-# Craking 12306
+# Cracking 12306
 基于深度学习的12306登录验证码破解。单类别验证通过率约95%，双类别验证通过率约90%。
 ![](captcha_imgs/double.jpg)
 ![](captcha_imgs/pred.png)
