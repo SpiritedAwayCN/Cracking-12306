@@ -157,7 +157,7 @@ def main():
         md5_str = m.hexdigest()
         
         fname = f'{int(time.time())}-{m.hexdigest()}.png'
-        selected_index, text_num = predict_captcha(img, md5_str)
+        selected_index, text_num = predict_captcha(img, md5_str, save=False)
         if text_num == 0:
             print('text preprocessing failed!')
             cv2.imwrite(os.path.join(PROCESS_OUTPUT_DIR, fname), img)
