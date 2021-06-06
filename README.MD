@@ -7,11 +7,14 @@
 * tensorflow >= 2.1.0
 * opencv
 * numpy
+
 如果需使用Jupyter进行可视化交互，还需要：
 * matplotlib
+
 如果需开启数据标注服务器，还需要：
 * flask
 * flask_compress
+
 如果需自行进行训练，还需要：
 * tqdm >= 4.43.0
 
