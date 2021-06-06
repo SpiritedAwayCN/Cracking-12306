@@ -4,10 +4,13 @@ archive_text
 *.zip
 *.npz
 *.npy
-*.h5
+# *.h5
 *.pyc
 *.vscode
 *.tar
 *.tar.gz
 *.ipynb_checkpoints
 *__pycache__
+
+h5/*
+!h5/final

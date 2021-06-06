@@ -5,12 +5,13 @@ import cv2
 import constants as c
 from utils.data import load_image_multicrop_for_predict
 from models.ResNetV2 import *
+from models.ResNet_SE import *
 from models.ResNetV2_text import ResNetv2_text
 
 _model = None
 _text_model = None
 label_dict = [0] * c.num_class
-def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
+def load_model_and_label(text_model_path='h5/final/text.h5',
     model_path='h5/20210413-03/ResNetV2-50.h5',
     label_path='metadata/label_to_content.txt'):
     global _model, _text_model
@@ -21,9 +22,9 @@ def load_model_and_label(text_model_path='h5/20210411-text01/checkpoint-50.h5',
         return
     
     if model_path == 'boosting':
-        _model_list = [ResNetv2S1()]
-        _model_path = ['h5/ResNetS1.S5']
-        for model, path in zip(_model_list, _model_path):
+        _model = [ResNetSEM1(), ResNetv2M2(), ResNetSEM3(), ResNetv2M4(), ResNetv2M4()]
+        _model_path = [f'h5/final/M{i}.h5' for i in range(1, 6)]
+        for model, path in zip(_model, _model_path):
             model.build((None, ) + c.input_shape)
             model.load_weights(path)
     else:
@@ -43,7 +44,7 @@ def pred_single(img, boosting=False):
     imgs = load_image_multicrop_for_predict(img)
     if boosting:
         prediction = [model(imgs, training=False) for model in _model]
-        prediction = tf.concat(prediction, axis=1)
+        prediction = tf.concat(prediction, axis=0)
     else:
         prediction = _model(imgs, training=False)
     prediction = tf.reduce_mean(prediction, axis=0)

@@ -143,10 +143,10 @@ def main():
         img = fetch_captcha(session)
 
         if img is None:
-            print('got Nonetype image, sleeping 10s and reopening session...')
+            print('got Nonetype image, sleeping 600s and reopening session...')
             if not session is None:
                 session.close()
-            time.sleep(10)
+            time.sleep(600)
             session = get_new_session()
             crawl_count += 1
             continue
