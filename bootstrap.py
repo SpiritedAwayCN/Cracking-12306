@@ -90,6 +90,9 @@ def predict_captcha(img, md5_str, save=True):
             selected_index.append(i)
         elif index_list[0] in (18, 69) and (18 in text_indexes or 69 in text_indexes):
             selected_index.append(i) # 钟表和挂钟都算
+        # elif index_list[1] in text_indexes and prediction[index_list[0]] <= 0.3 and prediction[index_list[1]] / prediction[index_list[0]] >= 0.45:
+        #     selected_index.append(i)
+            
         if save and prediction[index_list[0]] < 0.55:
             cv2.imwrite(os.path.join(IMAGE_OUTPUT_DIR, f'{md5_str}-im{i}.png'), image)
 
